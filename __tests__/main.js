@@ -21,6 +21,24 @@ const dataset = [
     errorMessage: 'Basic String input failed.'
   },
   {
+    input: `'hello'`,
+    expectedOutput: {
+      type: "Program",
+      body: new ParserNodes.StringLiteralNode('"hello"')
+    },
+    successMessage: 'Supports single quote strings!',
+    errorMessage: 'Support for single quote strings is failing.'
+  },
+  {
+    input: `    'hello'       `,
+    expectedOutput: {
+      type: "Program",
+      body: new ParserNodes.StringLiteralNode('"hello"')
+    },
+    successMessage: 'Supports single quote strings with surrounding spaces!',
+    errorMessage: 'Support for single quote strings with surrounding spaces is failing.'
+  },
+  {
     input: `       42       `,
     expectedOutput: {
       type: "Program",
